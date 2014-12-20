@@ -18,6 +18,7 @@ set :branch, 'master'
 
 set :user, 'deploy'    # Username in the server to SSH to.
 
+set :shared_paths, []
 
 # This task is the environment that is loaded for most commands, such as
 # `mina deploy` or `mina rake`.
