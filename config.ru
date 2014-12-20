@@ -10,4 +10,4 @@ require app_file
 set :root,        root_dir
 set :app_file,    app_file
 
-run AlexGGordon
+run Sinatra::Application
