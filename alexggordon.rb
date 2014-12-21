@@ -1,7 +1,6 @@
 # alexggordon.rb
 require 'sinatra'
 require 'sinatra/assetpack'
-require 'pry'
 
 class AlexGGordon < Sinatra::Base
   set :root, File.dirname(__FILE__) # You must set app root
