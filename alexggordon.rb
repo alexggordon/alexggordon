@@ -1,6 +1,7 @@
 # alexggordon.rb
 require 'sinatra'
 require 'sinatra/assetpack'
+require 'pry'
 
 class AlexGGordon < Sinatra::Base
   set :root, File.dirname(__FILE__) # You must set app root
@@ -9,16 +10,20 @@ class AlexGGordon < Sinatra::Base
 end
 
 assets do
-  css_compression :simple
   serve '/images', :from => 'app/images'
   serve '/css', :from => 'app/css'
 
   css :application, '/css/application.css', [
-      '/css/skeleton.css',
-      '/css/normalize.css',
-      '/css/custom.css'
+    '/css/skeleton.css'
+  ]
+  css :normalize, [
+    '/css/normalize.css'
+  ]
+  css :custom, [
+    '/css/custom.css'
   ]
 
+  css_compression :simple
 end
 
 get '/' do
