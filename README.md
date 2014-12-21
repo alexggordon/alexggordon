@@ -8,7 +8,7 @@ Colophon
 ===============
 The site was built using [Sublime Text 3](http://www.sublimetext.com/3), on a super simple [css framework](http://getskeleton.com/) from [Dave Gamache](http://davegamache.com/). The icons are obtained from [iconmonstr](http://iconmonstr.com/) and have their own respective [license](http://iconmonstr.com/license/).
 
-It is deployed with [mina](http://nadarei.co/mina/) and runs on [passenger](https://www.phusionpassenger.com/) and [sinatra](http://www.sinatrarb.com/).
+It is deployed with [mina](http://nadarei.co/mina/), runs on [passenger](https://www.phusionpassenger.com/) and [sinatra](http://www.sinatrarb.com/).
 
 
 License
