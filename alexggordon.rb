@@ -12,6 +12,8 @@ assets do
   serve '/images', :from => 'app/images'
   serve '/css', :from => 'app/css'
 
+  css :application, [
+  ]
   css :skeleton, [
     '/css/skeleton.css'
   ]
