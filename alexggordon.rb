@@ -12,7 +12,7 @@ assets do
   serve '/images', :from => 'app/images'
   serve '/css', :from => 'app/css'
 
-  css :application, '/css/application.css', [
+  css :skeleton, [
     '/css/skeleton.css'
   ]
   css :normalize, [
