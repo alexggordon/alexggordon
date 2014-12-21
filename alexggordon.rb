@@ -22,6 +22,7 @@ assets do
     '/css/custom.css'
   ]
 
+  css_compression :none
 end
 
 get '/' do
