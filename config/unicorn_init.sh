@@ -7,6 +7,8 @@
 # Default-Stop:      0 1 6
 # Short-Description: Manage unicorn server
 # Description:       Start, stop, restart unicorn server for a specific application.
+#
+# sudo update-rc.d -f unicorn_alexggordon defaults
 ### END INIT INFO
 set -e
 
