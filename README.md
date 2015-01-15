@@ -1,4 +1,4 @@
-alexggordon.com
+[http://alexggordon.com](http://alexggordon.com)
 ===============
 
 This is my personal website. 
