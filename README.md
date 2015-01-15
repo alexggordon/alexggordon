@@ -8,7 +8,7 @@ About
 ===============
 The site was built using [Sublime Text 3](http://www.sublimetext.com/3), on [Skeleton](http://getskeleton.com/) (an awesome, simple CSS framework by [Dave Gamache](http://davegamache.com/)). The icons are obtained from [drifty](http://drifty.com) and the font is [railway](http://www.google.com/fonts/specimen/Raleway).
 
-It is deployed with [mina](http://nadarei.co/mina/), and runs on [unicorn](http://unicorn.bogomips.org/) and [sinatra](http://www.sinatrarb.com/).
+It is deployed with [Mina](http://nadarei.co/mina/), and runs on [Unicorn](http://unicorn.bogomips.org/) and [Sinatra](http://www.sinatrarb.com/).
 
 
 License
