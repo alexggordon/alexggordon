@@ -6,16 +6,16 @@ This is my personal website.
 
 About
 ===============
-The site was built using [Sublime Text 3](http://www.sublimetext.com/3), on a super simple [css framework](http://getskeleton.com/) from [Dave Gamache](http://davegamache.com/). The icons are obtained from [drifty](drifty.com).
+The site was built using [Sublime Text 3](http://www.sublimetext.com/3), on [Skeleton](http://getskeleton.com/) (an awesome, simple CSS framework by [Dave Gamache](http://davegamache.com/)). The icons are obtained from [drifty](drifty.com) and the font is [Railway](http://www.google.com/fonts/specimen/Raleway).
 
-It is deployed with [mina](http://nadarei.co/mina/), runs on [passenger](https://www.phusionpassenger.com/) and [sinatra](http://www.sinatrarb.com/).
+It is deployed with [mina](http://nadarei.co/mina/), and runs on [unicorn](http://unicorn.bogomips.org/) and [sinatra](http://www.sinatrarb.com/).
 
 
 License
 ===============
 The MIT License (MIT)
 
-Copyright (c) 2014 Alex Gordon
+Copyright (c) 2015 Alex Gordon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
