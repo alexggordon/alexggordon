@@ -4,7 +4,6 @@
 This is my personal website. 
 
 ## About
-===============
 The site was built using [Sublime Text 3](http://www.sublimetext.com/3), on [Skeleton](http://getskeleton.com/) (an awesome, simple CSS framework by [Dave Gamache](http://davegamache.com/)). The icons are obtained from [ionicons](http://ionicons.com/) and the font is [Railway](http://www.google.com/fonts/specimen/Raleway).
 
 It is deployed with [Mina](http://nadarei.co/mina/), and runs on [Unicorn](http://unicorn.bogomips.org/) and [Sinatra](http://www.sinatrarb.com/).
@@ -13,6 +12,7 @@ It is deployed with [Mina](http://nadarei.co/mina/), and runs on [Unicorn](http:
 To help clarify the decisions behind a lot of the tools I use, I've started to explain "Why I used x?" with all my projects. 
 
 I tend to explain the questionable ones, more so than the staples (i.e, it's a lot more common to wonder "why use Sinatra?" as opposed to "why use Nginx?"). 
+
 
 #### Why use [Sinatra](http://www.sinatrarb.com/)?
 I used [Sinatra](http://www.sinatrarb.com/) because I wanted to learn a Ruby DSL that was super simple and a lot more compact than Rails. Unfortunately, I found Sinatra to be a little more cumbersome than I'd like, and found a few bugs even in writing a small app like this website. 
@@ -27,6 +27,7 @@ I think Skeleton works great as a tool that allows me to create websites with di
 
 #### Why use [ionicons](http://ionicons.com/)?
 I wanted open source, license free SVGs. Unfortunately, [license issues](https://twitter.com/alexggordon/status/546724595865116672) are an actual problem sometimes. 
+
 
 
 License
