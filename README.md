@@ -22,7 +22,7 @@ In hindsight, given that this is a mostly static site, I'd probably use [Github 
 #### Why use [Mina](http://nadarei.co/mina/)?
 I've had a lot of experience with Capistrano (and the slowness of pure Ruby deploys), and I like not re-inventing the wheel. Mina's use of SSH and Bash Script generation fit perfectly with this  paradigm. As a side note Mina's cooperation with my [zero-downtime](https://github.com/alexggordon/alexggordon/blob/37854a07190ab3ae90a951ec3eb07647f77589db/config/unicorn.rb#L40) [deploys](https://github.com/alexggordon/alexggordon/blob/37854a07190ab3ae90a951ec3eb07647f77589db/config/deploy.rb#L56) was excellent. 
 
-### Why use [Skeleton](http://getskeleton.com/)?
+#### Why use [Skeleton](http://getskeleton.com/)?
 I think Skeleton works great as a tool that allows me to create websites with different visual feel (unlike something like bootstrap), but still takes care of a lot of the annoying things like a responsive design. In addition to this, it's small and light as a CSS library. 
 
 #### Why use [ionicons](http://ionicons.com/)?
