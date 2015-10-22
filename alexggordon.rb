@@ -27,5 +27,5 @@ assets do
 end
 
 get '/' do
-  erb :index
+  render "html.erb", :index
 end
