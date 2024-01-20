@@ -31,3 +31,5 @@ config/secrets.yml
 log/development.log
 
 config/secrets.yml
+public/
+hugo_build.lock
