@@ -19,8 +19,6 @@ permalinks:
 
 paginate: 3
 
-disqusShortname: your-disqus-shortname
-
 # Hugo Configure Markup
 # More info: https://gohugo.io/getting-started/configuration-markup#
 markup:
