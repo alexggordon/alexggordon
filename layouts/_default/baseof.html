@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="{{ $.Site.LanguageCode | default "en" }}">
+  <head>
+    <title>{{ block "title" . }}{{ with .Params.Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
+
+    {{ partial "head.html" . }}
+
+  </head>
+
+  <body>
+    {{ partial "navigation.html" . }}
+
+    <main class="main">
+      {{ block "main" . }}{{ end }}
+    </main>
+
+    <footer id="footer">
+      {{ if .Site.Params.social }}
+        <div id="social">
+          {{ range $key, $val := .Site.Params.social }}
+            <a class="symbol" href="{{ $val }}" rel="me" target="_blank">
+              {{ $svg := print "svgs/" $key ".svg" }}
+              {{ partial $svg (dict "fill" "#bbbbbb" "width" 28 "height" 28 ) }}
+            </a>
+          {{ end }}
+        </div>
+      {{ end }}
+
+      <div class="copyright">
+      {{ with .Site.Params.copyright }}
+        {{ . | markdownify }}
+      {{ else }}
+        © Copyright
+        {{ now.Format "2006"}}
+        <span class="split">
+          {{ partial "svgs/heart.svg" (dict "fill" "#bbbbbb" "width" 15 "height" 15 ) }}
+        </span>
+        {{ .Site.Params.Author }}
+      {{ end }}
+      </div>
+
+      {{ if ne .Site.Params.showPowerBy false }}
+        <div class="powerby">
+          {{ i18n "poweredBy" | safeHTML }}
+        </div>
+      {{ end }}
+    </footer>
+
+    {{ range .Site.Params.customJS }}
+      {{ if ( or ( hasPrefix . "http://" ) ( hasPrefix . "https://" ) ) }}
+        <script src="{{ . }}"></script>
+      {{ else }}
+        <script src="{{ $.Site.BaseURL }}{{ . }}"></script>
+      {{ end }}
+    {{ end }}
+  </body>
+</html>

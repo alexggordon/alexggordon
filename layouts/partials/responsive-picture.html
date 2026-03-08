@@ -1,0 +1,67 @@
+{{- $resource := .resource -}}
+{{- if not $resource -}}
+  {{- errorf "responsive-picture requires a resource" -}}
+{{- end -}}
+{{- if not (reflect.IsImageResourceProcessable $resource) -}}
+  {{- errorf "responsive-picture resource %q is not a processable image" $resource.Name -}}
+{{- end -}}
+
+{{- $alt := .alt | default "" -}}
+{{- $sizes := .sizes | default "(max-width: 700px) calc(100vw - 2.5rem), 760px" -}}
+{{- $loading := .loading | default "lazy" -}}
+{{- $decoding := .decoding | default "async" -}}
+{{- $class := .class -}}
+{{- $fetchpriority := .fetchpriority -}}
+{{- $quality := .quality | default 70 -}}
+{{- $candidateWidths := .widths | default (slice 480 768 1050 1400) -}}
+
+{{- $widths := slice -}}
+{{- range $candidateWidths -}}
+  {{- if le . $resource.Width -}}
+    {{- $widths = $widths | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- if not (in $widths $resource.Width) -}}
+  {{- $widths = $widths | append $resource.Width -}}
+{{- end -}}
+{{- if eq (len $widths) 0 -}}
+  {{- $widths = slice $resource.Width -}}
+{{- end -}}
+
+{{- $webpResources := slice -}}
+{{- $webpSet := slice -}}
+{{- range $widths -}}
+  {{- $variant := $resource.Resize (printf "%dx webp q%d" . $quality) -}}
+  {{- $webpResources = $webpResources | append $variant -}}
+  {{- $webpSet = $webpSet | append (printf "%s %dw" $variant.RelPermalink $variant.Width) -}}
+{{- end -}}
+
+{{- $imgResources := $webpResources -}}
+{{- $imgSet := $webpSet -}}
+{{- if ne $resource.MediaType.SubType "webp" -}}
+  {{- $imgResources = slice -}}
+  {{- $imgSet = slice -}}
+  {{- range $widths -}}
+    {{- $variant := $resource.Resize (printf "%dx q%d" . $quality) -}}
+    {{- $imgResources = $imgResources | append $variant -}}
+    {{- $imgSet = $imgSet | append (printf "%s %dw" $variant.RelPermalink $variant.Width) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $imgSrc := index $imgResources (sub (len $imgResources) 1) -}}
+<picture>
+  {{- if ne $resource.MediaType.SubType "webp" -}}
+    <source type="image/webp" srcset="{{ delimit $webpSet ", " }}" sizes="{{ $sizes }}">
+  {{- end -}}
+  <img
+    src="{{ $imgSrc.RelPermalink }}"
+    srcset="{{ delimit $imgSet ", " }}"
+    sizes="{{ $sizes }}"
+    width="{{ $resource.Width }}"
+    height="{{ $resource.Height }}"
+    alt="{{ $alt }}"
+    loading="{{ $loading }}"
+    decoding="{{ $decoding }}"
+    {{- with $fetchpriority }} fetchpriority="{{ . }}"{{ end -}}
+    {{- with $class }} class="{{ . }}"{{ end -}}>
+</picture>

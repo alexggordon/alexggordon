@@ -1,0 +1,50 @@
+{{- $id := .Get "id" | default (printf "embla-%s" .Page.File.UniqueID) -}}
+{{- $ariaLabel := .Get "ariaLabel" | default "Image carousel" -}}
+{{- $sizes := .Get "sizes" | default "(max-width: 700px) calc(100vw - 2.5rem), 760px" -}}
+{{- $quality := 70 -}}
+{{- with .Get "quality" -}}
+  {{- $quality = int . -}}
+{{- end -}}
+{{- $images := .Page.Params.gallery -}}
+{{- if not $images -}}
+  {{- errorf "embla-gallery requires [[gallery]] entries in %s" .Page.File.Path -}}
+{{- end -}}
+{{- $total := len $images -}}
+<div class="embla{{ if le $total 1 }} is-single{{ end }}" id="{{ $id }}" tabindex="0" role="region" aria-label="{{ $ariaLabel }}">
+  <div class="embla__viewport">
+    <div class="embla__container">
+      {{- range $index, $image := $images -}}
+        {{- $resource := $.Page.Resources.GetMatch $image.src -}}
+        {{- if not $resource -}}
+          {{- errorf "embla-gallery could not find %q in %s" $image.src $.Page.File.Path -}}
+        {{- end -}}
+        {{- $loading := "lazy" -}}
+        {{- $fetchpriority := "" -}}
+        {{- if eq $index 0 -}}
+          {{- $loading = "eager" -}}
+          {{- $fetchpriority = "high" -}}
+        {{- end -}}
+        <figure class="embla__slide">
+          <div class="embla__image-frame">
+            {{- partial "responsive-picture.html" (dict
+              "resource" $resource
+              "alt" $image.alt
+              "sizes" $sizes
+              "loading" $loading
+              "decoding" "async"
+              "fetchpriority" $fetchpriority
+              "quality" $quality
+            ) -}}
+          </div>
+          <figcaption class="embla__caption"><span class="embla__count">{{ add $index 1 }} / {{ $total }}</span>{{ $image.caption }}</figcaption>
+        </figure>
+      {{- end -}}
+    </div>
+  </div>
+
+  <div class="embla__controls">
+    <button class="embla__prev" type="button" aria-label="Show previous image">Prev</button>
+    <div class="embla__dots" aria-label="Choose image"></div>
+    <button class="embla__next" type="button" aria-label="Show next image">Next</button>
+  </div>
+</div>

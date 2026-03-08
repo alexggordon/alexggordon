@@ -34,13 +34,6 @@ markup:
     renderer:
       unsafe: true
 
-# Social links in footer, support github,twitter,stackoverflow,facebook
-social:
-  hn: https://news.ycombinator.com/user?id=alexggordon
-  github: https://github.com/alexggordon
-  stackoverflow: https://stackoverflow.com/users/2506667/alexggordon
-  linkedin: https://www.linkedin.com/in/alexggordon
-
 # Site parameters
 params:
   # Site Author
@@ -49,6 +42,12 @@ params:
   bio: <p>Software. DIY. Wine.</p><p>Boston</p>
   # Site Description, used in HTML meat
   description: Alex Gordon
+  # Social links in footer
+  social:
+    hn: https://news.ycombinator.com/user?id=alexggordon
+    github: https://github.com/alexggordon
+    stackoverflow: https://stackoverflow.com/users/2506667/alexggordon
+    linkedin: https://www.linkedin.com/in/alexggordon
 
 
   ###########################################
@@ -80,15 +79,26 @@ params:
 
   # You can put your custom css and js to `static` directory, or use remote css and js files which start with `http://` or `https://`
   customCSS:
-    ## e.g.
-    # - svgs/gitlab.svg # local css in `static/css/custom.css`
-    # - https://example.com/custom.css # remote css
+    - css/custom.css
   customJS:
-    ## e.g.
-    # - js/custom.js # local js in `static/js/custom.js`
-    # - https://example.com/custom.js # remote js
+    - https://cdn.jsdelivr.net/npm/embla-carousel@8.6.0/embla-carousel.umd.js
+    - js/custom.js
 
 module:
   mounts:
+    - source: content
+      target: content
+    - source: layouts
+      target: layouts
+    - source: static
+      target: static
+    - source: i18n
+      target: i18n
+    - source: archetypes
+      target: archetypes
+    - source: assets
+      target: assets
+    - source: data
+      target: data
     - source: static/svgs/
       target: layouts/partials/svgs/

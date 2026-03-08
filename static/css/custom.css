@@ -1,0 +1,167 @@
+.embla {
+  margin: 2rem 0 2.5rem;
+  padding: 1rem;
+  border: 1px solid #e8e8e8;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
+  box-shadow: 0 18px 45px rgba(17, 17, 17, 0.06);
+}
+
+.embla:focus-visible {
+  outline: 2px solid #111;
+  outline-offset: 4px;
+}
+
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  gap: 1rem;
+  touch-action: pan-y pinch-zoom;
+}
+
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+.embla__image-frame {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #111;
+}
+
+.embla__image-frame picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.embla__image-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.embla__caption {
+  margin-top: 0.85rem;
+  min-height: 3.2em;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.embla__count {
+  display: inline-block;
+  margin-right: 0.65rem;
+  color: #999;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.embla__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.embla__prev,
+.embla__next {
+  border: 0;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  padding: 0.65rem 1rem;
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+.embla__prev:hover,
+.embla__prev:focus-visible,
+.embla__next:hover,
+.embla__next:focus-visible {
+  background: #333;
+}
+
+.embla__prev:active,
+.embla__next:active {
+  transform: translateY(1px);
+}
+
+.embla__prev:disabled,
+.embla__next:disabled {
+  cursor: default;
+  opacity: 0.45;
+  background: #666;
+  transform: none;
+}
+
+.embla__dots {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.embla__dot {
+  width: 11px;
+  height: 11px;
+  border: 1px solid #bbb;
+  border-radius: 999px;
+  background: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.embla__dot--selected {
+  background: #111;
+  border-color: #111;
+  transform: scale(1.08);
+}
+
+.embla.is-single .embla__controls {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .embla {
+    padding: 0.75rem;
+    border-radius: 14px;
+  }
+
+  .embla__controls {
+    gap: 0.5rem;
+  }
+
+  .embla__prev,
+  .embla__next {
+    flex: 0 0 auto;
+    padding: 0.55rem 0.85rem;
+  }
+
+  .embla__caption {
+    min-height: 0;
+    font-size: 13px;
+  }
+
+  .embla__dots {
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+
+  .embla__image-frame {
+    aspect-ratio: 4 / 5;
+  }
+}
