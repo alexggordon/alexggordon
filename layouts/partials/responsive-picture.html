@@ -2,8 +2,8 @@
 {{- if not $resource -}}
   {{- errorf "responsive-picture requires a resource" -}}
 {{- end -}}
-{{- if not (reflect.IsImageResourceProcessable $resource) -}}
-  {{- errorf "responsive-picture resource %q is not a processable image" $resource.Name -}}
+{{- if ne $resource.ResourceType "image" -}}
+  {{- errorf "responsive-picture resource %q is not an image" $resource.Name -}}
 {{- end -}}
 
 {{- $alt := .alt | default "" -}}
